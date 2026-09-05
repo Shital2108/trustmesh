@@ -1,0 +1,7 @@
+{
+  "name": "TrustMesh",
+  "description": "Deterministic safety verification and cryptographic audit layer sitting between AI agents and physical IoT actuators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
