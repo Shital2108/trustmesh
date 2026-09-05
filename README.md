@@ -47,11 +47,11 @@ Click **Simulate Sensor Spoofing Attack**:
 1. A corrupted pressure reading is injected into the telemetry stream (+208% in ~1 second).
 2. The AI agent, reasoning from the corrupted data, proposes an emergency valve command that sounds justified — and is completely unsafe.
 3. The Policy Engine — which trusts the physics, not the AI's reasoning — independently fails the command across all four checks.
-4. The actuator holds its last safe position. The attempt is permanently written to the audit ledger.
+4. The actuator holds its last safe position. The attempt is recorded in the tamper-evident audit ledger.
 
 ### Tamper-Evident Audit Trail
 
-Every decision, allowed or blocked, is recorded in an append-only log where each entry's hash incorporates the previous entry's hash. **Verify Chain Integrity** recomputes the entire chain on demand — altering any historical record, even by a single character, produces an immediate, specific hash mismatch pointing to the exact broken block.
+Every decision, allowed or blocked, is recorded in an append-only log where each entry's hash incorporates the previous entry's hash. **Verify Chain Integrity** recomputes the entire chain on demand — altering any historical record, even by a single character, produces an immediate, specific hash mismatch pointing to the exact broken block. This makes tampering *detectable*, not impossible to attempt — in production the ledger would additionally be anchored to durable external storage or an independent trust boundary.
 
 ![TrustMesh Dashboard](public/assets/trustmesh_screenshot.png)
 
